@@ -11,10 +11,6 @@ def embed_lsb(image_path: str, message: str, output_path: str):
     except Exception as e:
         raise ValueError(f"Failed to open image: {e}")
 
-    if image_path.lower().endswith((".jpg", ".jpeg")):
-        print("\n[!] WARNING: JPEG format detected on input!")
-        print("[!] Input will be converted and saved as PNG.")
-
     if img.mode != "RGB":
         img = img.convert("RGB")
 
@@ -61,7 +57,6 @@ def embed_lsb(image_path: str, message: str, output_path: str):
     stego_img.save(output_path, "PNG")
 
     print(f"\n[✓] Message successfully hidden in image!")
-    print(f"[✓] Output format: PNG (lossless)")
     print(f"[✓] Image saved to: {output_path}")
 
 

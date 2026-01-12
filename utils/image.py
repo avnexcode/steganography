@@ -42,7 +42,7 @@ def select_image_file(title: str = "Select Image File") -> str:
         return ""
 
 
-def select_output_location(input_path: str, suffix: str = "-enc") -> str:
+def select_output_location(input_path: str, suffix: str = "-output") -> str:
     print("\n--- SELECT OUTPUT LOCATION ---")
     print("1. Same as input location (automatic, will be saved as PNG)")
     print("2. Choose location with File Explorer")
@@ -52,7 +52,6 @@ def select_output_location(input_path: str, suffix: str = "-enc") -> str:
     if choice == "1":
         base_name = os.path.splitext(input_path)[0]
         output_path = f"{base_name}{suffix}.png"
-        print(f"[✓] Output will be saved at: {output_path}")
         return output_path
 
     elif choice == "2":
@@ -76,7 +75,6 @@ def select_output_location(input_path: str, suffix: str = "-enc") -> str:
         if output_path:
             if not output_path.lower().endswith(".png"):
                 output_path = os.path.splitext(output_path)[0] + ".png"
-            print(f"[✓] Output will be saved at: {output_path}")
             return output_path
         else:
             print("[✗] No location selected!")

@@ -44,7 +44,7 @@ def handle_encryption(cipher_type, mode):
     print(f"\nCiphertext: {ciphertext}")
 
     if mode == "2":
-        output_path = select_output_location(image_path, suffix="-enc")
+        output_path = select_output_location(image_path, suffix="-encrypted")
         if output_path:
             try:
                 embed_lsb(image_path, ciphertext, output_path)
