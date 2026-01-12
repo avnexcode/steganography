@@ -3,11 +3,6 @@ import string
 uppercase: str = string.ascii_uppercase
 
 
-import string
-
-uppercase: str = string.ascii_uppercase
-
-
 def caesarEncrypt(plaintext: str, key: int, show_process: bool = False):
     encrypt = ""
     plaintext_clean = plaintext.replace(" ", "").upper()
@@ -68,41 +63,6 @@ def exhaustiveKeySearch(ciphertext: str):
         result.append(f"Key {shift:2d}: {decrypt}")
 
     return result
-
-
-def menu_caesar():
-    print("\n--- CAESAR CIPHER ---")
-    pilihan = input("Pilih (1=Enkripsi, 2=Dekripsi): ")
-
-    if pilihan == "1":
-        plaintext = input("Masukkan plaintext: ")
-        key = int(input("Masukkan key (angka): "))
-
-        ciphertext, process = caesarEncrypt(plaintext, key, show_process=True)
-
-        print("\n--- PROSES ENKRIPSI ---")
-        print(f"Rumus: E(p) = (p + k) mod 26")
-        print(f"Plaintext: {plaintext}")
-        print(f"Key: {key}")
-        print("\nProses per karakter:")
-        for p in process:
-            print(f"  {p}")
-        print(f"\nCiphertext: {ciphertext}")
-
-    elif pilihan == "2":
-        ciphertext = input("Masukkan ciphertext: ")
-        key = int(input("Masukkan key (angka): "))
-
-        plaintext, process = caesarDecrypt(ciphertext, key, show_process=True)
-
-        print("\n--- PROSES DEKRIPSI ---")
-        print(f"Rumus: D(c) = (c - k) mod 26")
-        print(f"Ciphertext: {ciphertext}")
-        print(f"Key: {key}")
-        print("\nProses per karakter:")
-        for p in process:
-            print(f"  {p}")
-        print(f"\nPlaintext: {plaintext}")
 
 
 def menu_exhaustive():

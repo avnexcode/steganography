@@ -79,28 +79,3 @@ def transposDecrypt(ciphertext: str, key: int, show_process: bool = False):
         process.append(f"\nPlaintext (setelah menghapus padding): {decrypt}")
 
     return decrypt, process if show_process else decrypt
-
-
-def menu_transposition():
-    print("\n--- TRANSPOSITION CIPHER ---")
-    pilihan = input("Pilih (1=Enkripsi, 2=Dekripsi): ")
-
-    if pilihan == "1":
-        plaintext = input("Masukkan plaintext: ")
-        key = int(input("Masukkan key (jumlah kolom): "))
-
-        ciphertext, process = transposEncrypt(plaintext, key, show_process=True)
-
-        print("\n--- PROSES ENKRIPSI ---")
-        for p in process:
-            print(p)
-
-    elif pilihan == "2":
-        ciphertext = input("Masukkan ciphertext: ")
-        key = int(input("Masukkan key (jumlah kolom): "))
-
-        plaintext, process = transposDecrypt(ciphertext, key, show_process=True)
-
-        print("\n--- PROSES DEKRIPSI ---")
-        for p in process:
-            print(p)
