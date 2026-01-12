@@ -10,7 +10,7 @@ from utils.display_cli import (
 
 
 def handle_next_action():
-    print("\n" + "-" * 60)
+    print("\n")
     print("--- NEXT ACTION ---")
     print("1. Continue")
     print("2. Clear terminal")
@@ -27,7 +27,7 @@ def main():
     while True:
         menu_choice = display_cipher_menu()
 
-        if menu_choice == "5":
+        if menu_choice == "0":
             print("\n[✓] Thank you for using this application!")
             break
 

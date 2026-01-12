@@ -1,5 +1,5 @@
 import os
-from utils import select_image_file, select_output_location, display_process
+from utils import select_image_file, select_output_location
 from modules.steganography import embed_lsb, extract_lsb
 from modules.cryptography import encrypt_text, decrypt_text
 
@@ -32,7 +32,7 @@ def handle_encryption(cipher_type, mode):
 
     try:
         key = get_encryption_key(cipher_type)
-        ciphertext, process = encrypt_text(plaintext, key, cipher_type)
+        ciphertext = encrypt_text(plaintext, key, cipher_type)
         cipher_name = get_cipher_name(cipher_type)
     except ValueError:
         print("[✗] Key must be a number!")
@@ -41,7 +41,6 @@ def handle_encryption(cipher_type, mode):
     print(f"\n--- {cipher_name.upper()} ENCRYPTION RESULT ---")
     print(f"Plaintext: {plaintext}")
     print(f"Key: {key}")
-    display_process(process)
     print(f"\nCiphertext: {ciphertext}")
 
     if mode == "2":
@@ -75,7 +74,7 @@ def handle_decryption(cipher_type, mode):
 
     try:
         key = get_encryption_key(cipher_type)
-        plaintext, process = decrypt_text(ciphertext, key, cipher_type)
+        plaintext = decrypt_text(ciphertext, key, cipher_type)
         cipher_name = get_cipher_name(cipher_type)
     except ValueError:
         print("[✗] Key must be a number!")
@@ -84,7 +83,6 @@ def handle_decryption(cipher_type, mode):
     print(f"\n--- {cipher_name.upper()} DECRYPTION RESULT ---")
     print(f"Ciphertext: {ciphertext}")
     print(f"Key: {key}")
-    display_process(process)
     print(f"\nPlaintext: {plaintext}")
 
     return True
